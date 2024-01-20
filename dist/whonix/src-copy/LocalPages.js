@@ -6,4 +6,21 @@ deferrable:YES -- It comes later in the rendering process anyways
 
 (function() {
 
+	// ==============
+	// Page: Homepage
+
+	let scrollMargin = 70;
+
+	if( $('body').hasClass('page-Homepage') ) {
+
+		let urlHash = mwDev.tools.hashControl.get();
+		if( urlHash && urlHash.match( /^explain-/ ) ) {
+			// Open extendable box containing card
+			let collapseContainer = $( urlHash ).parents('.mw-collapsed');
+			if( collapseContainer.length ) collapseContainer.find('.mw-collapsible-toggle')[0].click();
+			$('html, body').stop().animate( { 'scrollTop': $( '#' + urlHash ).offset().top - scrollMargin }, 800, 'swing', () => $(window).miniModal('checkForModalsCalledByHash') );
+		}
+
+	}
+
 })();
