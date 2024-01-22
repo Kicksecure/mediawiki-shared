@@ -1,3 +1,9 @@
+/*
+EnhanceHeadlines Gadget - JS Initialisation, Setup, Events. Adds some additional functionality to headlines except if prevented by special class
+See detailed documentation in Dev/mediawiki
+deferrable:YES -- Because it's an augmentation and is not a needed depedency
+*/
+
 (function() {
 
 	if( $('[data-pageMeta-preventEnhanceHeadlines]').length ) return;
